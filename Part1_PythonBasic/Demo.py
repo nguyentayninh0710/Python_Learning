@@ -80,5 +80,21 @@ print(not a) # False
 #Calculate the area of the rectangle (a=5, b=7).
 #Compare the two numbers x=15, y=20 and print the result (x < y).
 
+#INPUT from keyboard 
+myName = input("input your name: ")
+print("Hello ", myName)
+
+myAge = int(input("input your age: "))
+demo = myAge + 3
+print("Your age ", myAge)
+
+myHeight = float(input("input your height: "))
+
+#Practice Exercise 3:
+#Write a program to input an integer from the keyboard and print out whether the number is even or odd.
+
+
+
+
 
 
