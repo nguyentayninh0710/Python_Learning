@@ -81,20 +81,33 @@ print(not a) # False
 #Compare the two numbers x=15, y=20 and print the result (x < y).
 
 #INPUT from keyboard 
-myName = input("input your name: ")
-print("Hello ", myName)
+# myName = input("input your name: ")
+# print("Hello ", myName)
 
-myAge = int(input("input your age: "))
-demo = myAge + 3
-print("Your age ", myAge)
+# myAge = int(input("input your age: "))
+# demo = myAge + 3
+# print("Your age ", myAge)
 
-myHeight = float(input("input your height: "))
+# myHeight = float(input("input your height: "))
 
 #Practice Exercise 3:
 #Write a program to input an integer from the keyboard and print out whether the number is even or odd.
 
-
-
+# LOOP
+# FOR LOOP
+# range(start, stop)
+for index in range(1,6):
+    print(index)
+# range(start, stop, step)
+for index in range(1,6,2):
+    print(index)
+# While LOOP
+print("_______________________WHILE LOOP______________________")
+count = 0
+while count < 5:
+    print(count)
+    #count = count + 1
+    count += 1
 
 
 
