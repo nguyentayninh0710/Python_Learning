@@ -109,5 +109,124 @@ while count < 5:
     #count = count + 1
     count += 1
 
+List = ["Audi", "Bmw", "Toyota"]
+for car in List:
+    print("Brand:", car)
+
+
+# Practice Exercise 4:
+
+# Print the 5 multiplication table using a for loop.
+print("5 Times Table")
+for i in range(1, 11): 
+    print("5 x", i, "=", 5 * i)
+
+# Print the numbers from 1 to 20, but only print even numbers.
+print("Even numbers from 1 to 20")
+for i in range(1, 21):   
+    if i % 2 == 0:   
+        print(i, end = " ")
+        
+#Function
+def greet(name):
+    return f"Hello {name}"
+
+print(greet("Alice"))
+print(greet("Vu"))
+
+def add(a,b):
+    return a + b
+
+print("4 + 3 =", add(4,3))
+print("2 + 1 =", add(2,1))
+
+# Practice Exercise 5:
+
+# Write a function to calculate the area of ​​a circle (parameter: radius r).
+import math
+math.pi
+
+# Write a function to check if the input number is prime.
+math.sqrt
+# 0 1 not prime
+# 2 
+# N sqrt = [(√N) + 1] ~ , check 2 to √N | N can % any number on range(1,√N) => yes => not prime 
+# end range => dont have any number can % for N => prime
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
+print(is_prime(4))
+
+# Problem Statement
+
+# A school wants to keep track of students’ average marks and classification. Each student has:
+
+# a name (string)
+
+# a set of subject marks (real numbers)
+
+# You need to write a program that:
+
+# Reads the number of students n.
+
+# For each student:
+
+# Reads the name.
+
+# Reads the number of subjects.
+
+# Reads all subject marks.
+
+# Calculates the average mark.
+
+# Determines the grade category:
+
+# >= 8.0: Excellent
+
+# >= 6.5: Good
+
+# >= 5.0: Pass
+
+# < 5.0: Fail
+
+# Outputs the result for each student in the form: Name – Average – Category
+
+n = int(input("Enter number of students: "))
+
+for _ in range(n):
+    # Read student name
+    name = input("\nEnter student name: ")
+
+    # Read number of subjects
+    subjects = int(input("Enter number of subjects: "))
+
+    # Read subject marks
+    marks = []
+    for i in range(subjects):
+        mark = float(input(f"Enter mark for subject {i+1}: "))
+        marks.append(mark)
+
+    # Calculate average
+    average = sum(marks) / subjects
+
+    # Determine category
+    if average >= 8.0:
+        category = "Excellent"
+    elif average >= 6.5:
+        category = "Good"
+    elif average >= 5.0:
+        category = "Pass"
+    else:
+        category = "Fail"
+
+    # Print result
+    print(f"{name} – {average:.2f} – {category}")
 
 
