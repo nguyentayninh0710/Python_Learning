@@ -27,3 +27,44 @@ Corporation: Tax = 15000.00
 Startup: Tax = 0.00
 Total tax collected: 23000.00
 '''
+
+from __future__ import annotations
+from abc import ABC, abstractmethod
+from typing import List
+
+class Business (ABC):
+    def __init__(self, revenue:float):
+        self.revenue = revenue
+
+    def calculate_tax(self) -> float:
+        pass
+
+class SoleProprietorship(Business):
+    def calculate_tax(self) -> float:
+        return self.revenue * 0.10
+    
+class Corporation(Business):
+    def calculate_tax(self) -> float:
+        return max(0, (self.revenue * 0.20)-5000)
+    
+class Startup(Business):
+    def calculate_tax(self) -> float:
+        if self.revenue * 0.1 < 50000:
+            return 0
+        return self.revenue * 0.05
+    
+def total_tax(businesses: List[Business]) -> float:
+    total = 0
+    for b in businesses:
+        total += b.calculate_tax()
+    return total
+
+def demo_polymorphism_business() -> None:
+    businesses: List[Business] = [
+        SoleProprietorship(80000),
+        Corporation(100000),
+        Startup(4000)
+    ]
+    for b in businesses:
+        print(f"{b.__class__.__name__}: Tax = {b.calculate_tax():.2f}")
+    print("Total tax collected:", f"{total_tax(businesses):.2f}")
