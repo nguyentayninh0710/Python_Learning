@@ -27,3 +27,66 @@ Corporation: Tax = 15000.00
 Startup: Tax = 0.00
 Total tax collected: 23000.00
 '''
+
+from __future__ import annotations
+from abc import ABC, abstractmethod
+from typing import List
+
+class Business(ABC):
+    def __init__(self, revenue: float):
+        self.revenue = revenue 
+
+    @abstractmethod
+    def calculate_tax(self) -> float:
+        pass
+    
+    def __repr__(self) -> str:
+        pass 
+
+class SoleProprietorship(Business):
+    def __init__(self, revenue: float):
+        super().__init__(revenue)
+
+    def calculate_tax(self) -> float:
+        return self.revenue *0.1
+    
+    def __repr__(self) -> str:
+        return "Solo Proprietorship"
+    
+class Corporation(Business):
+    def __init__(self, revenue: float):
+        super().__init__(revenue)
+
+    def calculate_tax(self) -> float:
+        return (self.revenue * 0.2)-5000
+    
+    def __repr__(self) -> str:
+        return "Corporation"
+    
+class Startup(Business):
+    def __init__(self, revenue: float):
+        super().__init__(revenue)
+
+    def calculate_tax(self) -> float:
+        if self.revenue < 50000:
+            return 0.0
+        return self.revenue * 0.05
+    
+    def __repr__(self) -> str:
+        return "Startup"
+    
+def total_tax(businesses: List[Business]) -> float:
+    return sum(b.calculate_tax() for b in businesses)
+
+def demo_tax_system():
+    businesses: List[Business] = [
+        SoleProprietorship(80000),
+        Corporation(100000),
+        Startup(40000),
+    ]
+
+
+
+
+
+    
